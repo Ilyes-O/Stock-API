@@ -1,17 +1,34 @@
 import { StatusBar } from 'expo-status-bar';
+import { useCallback, useEffect } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import * as SplashScreen from 'expo-splash-screen';
+
+SplashScreen.preventAutoHideAsync();
+
+import Header from './components/Header';
+import Initial_Inputs from './components/Initial_Inputs';
 
 export default function App() {
+  useEffect(async function () {
+    await SplashScreen.hideAsync();
+  }, [])
+  
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
+    <View style={styles.home_screen}>
+      <Header />
+      <Initial_Inputs />
+      <StatusBar style='auto' />
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
+  text: {
+    textAlign: 'center',
+    fontSize: 50,
+    fontFamily: 'EuphemiaUCAS-Bold',
+  },
+  home_screen: {
     flex: 1,
     backgroundColor: '#fff',
     alignItems: 'center',
