@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet } from 'react-native';
+import { Text, StyleSheet } from 'react-native';
 
 export default function Header() {
     return (
@@ -9,8 +9,7 @@ export default function Header() {
 const styles = StyleSheet.create({
     header_text: {
         textAlign: 'center',
-        display: 'relative',
-        bottom: '25%',
+        top: "7.5%",
         fontSize: 45,
         fontFamily: 'EuphemiaUCAS-Bold',
     }
