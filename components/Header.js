@@ -1,8 +1,8 @@
 import { Text, StyleSheet } from 'react-native';
 
-export default function Header() {
+export default function Header({header_text}) {
     return (
-        <Text style={styles.header_text}>Welcome</Text>
+        <Text style={styles.header_text}>{header_text}</Text>
     );
 }
 
