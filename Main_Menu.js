@@ -27,7 +27,7 @@ export default function Main_Menu({ route }) {
             <Header header_text={"Hi " + name + "!"} />
             <DropDownPicker style={styles.dropdown_styles} onSelectItem={(item) => {
                 console.log(item["value"])
-                fetch("https://e3bf-192-54-222-150.ngrok.io/image/h?comp=" + item["value"]).then((response) => response.json()).then((data) => console.log(data));
+                fetch("https://e3bf-192-54-222-150.ngrok.io/image/h?comp=" + item["value"]);
             }}
                 open={open}
                 value={value}
