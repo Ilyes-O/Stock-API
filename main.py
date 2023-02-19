@@ -3,6 +3,7 @@ import requests
 import datetime
 
 
+
 def print_list(li):
     for j in range(0, len(li)-1):
         if j == (len(li)-1):
