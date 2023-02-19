@@ -3,35 +3,33 @@ import { useEffect } from 'react';
 import { StyleSheet, Text, View, Image} from 'react-native';
 import * as SplashScreen from 'expo-splash-screen';
 
+import Home_Page from './components/Home_Page';
+
 SplashScreen.preventAutoHideAsync();
 
-import Header from './components/Header';
-import Initial_Inputs from './components/Initial_Inputs';
+import { NavigationContainer } from '@react-navigation/native';
+import Main_Menu from './Main_Menu';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
+const Stack = createNativeStackNavigator();
 
 export default function App() {
   useEffect(async function () {
-    await SplashScreen.hideAsync();
+   await SplashScreen.hideAsync();
   }, [])
   
   return (
-    <View style={styles.home_screen}>
-      <Header />
-      <Initial_Inputs />
-      <StatusBar style='auto' />
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator screenOptions={{headerShown: false}}>
+        <Stack.Screen
+          name="Home_Page"
+          component={Home_Page}       
+        />
+        <Stack.Screen 
+          name="Main_Menu"
+          component={Main_Menu}
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  text: {
-    textAlign: 'center',
-    fontSize: 50,
-    fontFamily: 'EuphemiaUCAS-Bold',
-  },
-  home_screen: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
